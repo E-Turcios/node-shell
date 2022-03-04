@@ -7,6 +7,7 @@ function lsFunc() {
     } else {
       process.stdout.write("\n");
       process.stdout.write(files.join("\n"));
+      process.stdout.write("\nprompt > ");
     }
   });
 }
