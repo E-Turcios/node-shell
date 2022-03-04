@@ -1,5 +1,6 @@
 // const wd = __dirname;
-const pwd = require('./pwd');
+const pwd = require("./pwd");
+const ls = require("./ls");
 
 process.stdout.write("prompt >");
 
@@ -11,6 +12,9 @@ process.stdin.on("data", (data) => {
     pwd();
   }
 
-  process.stdout.write("\nprompt > ");
+  if (cmd === "ls") {
+    ls();
+  }
 
+  process.stdout.write("\nprompt > ");
 });
