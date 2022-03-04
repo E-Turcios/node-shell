@@ -1,6 +1,6 @@
-const pwdFunc = () => {
+const pwdFunc = (callback) => {
   const wd = process.cwd();
-  process.stdout.write(wd)
+  callback(wd)
 };
 
 module.exports = pwdFunc;

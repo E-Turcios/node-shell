@@ -7,26 +7,29 @@ const curl = require("./curl");
 process.stdout.write("prompt >");
 
 process.stdin.on("data", (data) => {
-  const cmd = data.toString().trim().split(" ");
-  const token = cmd[0];
+
+  const[token, arg]= data.toString().trim().split(" ");
 
   switch (token) {
     case "pwd":
-      pwd();
+      pwd(print);
       break;
     case "ls":
-      ls();
+      ls(print);
       break;
     case "cat":
-      cat(cmd[1]);
+      cat(arg, print);
       break;
     case "curl":
-      curl(cmd[1]);
+      curl(arg, print);
       break;
     default:
-      process.stdout.write("\nInvalid input.");
+      print("\nInvalid input.");
       break;
   }
-
-  process.stdout.write("\nprompt > ");
 });
+
+const print = (output) => {
+  process.stdout.write(output);
+  process.stdout.write("\nprompt > ");
+}
