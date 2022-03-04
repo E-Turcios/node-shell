@@ -1,7 +1,15 @@
-process.stdout.write('prompt >');
+// const wd = __dirname;
+const wd = process.cwd();
 
-process.stdin.on('data', (data) => {
+process.stdout.write("prompt >");
+
+process.stdin.on("data", (data) => {
   const cmd = data.toString().trim();
-  process.stdout.write('You typed: ' + cmd);
-  process.stdout.write('\nprompt > ');
+  // process.stdout.write("You typed: " + cmd);
+
+  if (cmd === "pwd") {
+    process.stdout.write(wd);
+  }
+
+  process.stdout.write("\nprompt > ");
 });
